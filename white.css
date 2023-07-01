@@ -1,0 +1,13 @@
+:root{
+    --background: hsl(0, 0%, 90%);
+    --screen:hsl(0, 0%, 93%);
+    --keypad-bg: hsl(0, 5%, 81%);
+    --btn-bg: hsl(45, 7%, 89%);
+    --btn-shadow: hsl(35, 11%, 61%);
+    --reset-btn-bg: hsl(185, 42%, 37%);
+    --reset-btn-shadow: hsl(185, 58%, 25%);
+    --equal-btn-bg: hsl(25, 98%, 40%);
+    --equal-btn-shadow: hsl(25, 99%, 27%);
+    --white: hsl(0, 0%, 100%);
+    --text-color: ;
+}
