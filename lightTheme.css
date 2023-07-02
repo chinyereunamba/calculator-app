@@ -1,13 +1,16 @@
 :root{
     --background: hsl(0, 0%, 90%);
     --screen:hsl(0, 0%, 93%);
+    --screen-text: hsl(60, 10%, 19%);
     --keypad-bg: hsl(0, 5%, 81%);
     --btn-bg: hsl(45, 7%, 89%);
     --btn-shadow: hsl(35, 11%, 61%);
+    --btn-text: hsl(60, 10%, 19%);
+    --btn-hover: hsl(0, 0%, 100%);
     --reset-btn-bg: hsl(185, 42%, 37%);
     --reset-btn-shadow: hsl(185, 58%, 25%);
+    --reset-hover: hsl(185, 42%, 46%);
     --equal-btn-bg: hsl(25, 98%, 40%);
     --equal-btn-shadow: hsl(25, 99%, 27%);
-    --white: hsl(0, 0%, 100%);
-    --text-color: ;
+    --equal-hover: hsl(25, 99%, 43%);
 }

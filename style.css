@@ -1,32 +1,35 @@
-@import url('https://fonts.googleapis.com/css2?family=League+Spartan:wght@300;400;500;600;700&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=League+Spartan:wght@300;400;500;600;700&display=swap");
 
-:root{
+:root {
     --background: hsl(222, 26%, 31%);
-    --screen:hsl(224, 36%, 15%);
+    --screen: hsl(224, 36%, 15%);
     --screen-text: hsl(0, 0%, 100%);
     --keypad-bg: hsl(223, 31%, 20%);
     --btn-bg: hsl(30, 25%, 89%);
     --btn-shadow: hsl(28, 16%, 65%);
     --btn-text: hsl(221, 14%, 31%);
+    --btn-hover: hsl(0, 0%, 100%);
     --reset-btn-bg: hsl(225, 21%, 49%);
     --reset-btn-shadow: hsl(224, 28%, 35%);
+    --reset-text: hsl(0, 0%, 100%);
+    --reset-hover: hsl(225, 21%, 55%);
     --equal-btn-bg: hsl(6, 63%, 50%);
     --equal-btn-shadow: hsl(6, 70%, 34%);
-    --white: hsl(0, 0%, 100%);
+    --equal-text: hsl(0, 0%, 100%);
+    --equal-hover: hsl(6, 63%, 57%);
 }
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: 'League Spartan', sans-serif;
+    text-decoration: none;
+    font-family: "League Spartan", sans-serif;
 }
 
 body {
     background: var(--background);
+    transition: 1.5s ease;
 }
-
-/* main {
-} */
 
 .container {
     display: flex;
@@ -35,12 +38,18 @@ body {
     min-height: calc(100vh - 2rem);
 }
 
+.calc{
+    max-width: 430px;
+    width: 100%;
+    margin: 1rem;
+}
+
 .calc .header {
     display: flex;
     justify-content: space-between;
     align-items: center;
     color: var(--screen-text);
-    margin-bottom: 1.5rem;
+    margin-bottom: 1.4rem;
 }
 
 .header h3 {
@@ -54,13 +63,13 @@ body {
     line-height: 18px;
 }
 
-.theme{
+.theme {
     display: flex;
     align-items: flex-end;
     gap: 2rem;
 }
 
-.theme .scroll{
+.theme .scroll {
     display: flex;
     width: 65px;
     justify-content: center;
@@ -68,7 +77,7 @@ body {
     align-items: center;
 }
 
-.scroll > span{
+.scroll > span {
     display: flex;
     justify-content: space-around;
     align-items: center;
@@ -76,25 +85,41 @@ body {
     height: 15px;
 }
 
-.theme .scroll-btn{
+.theme .scroll-btn {
     position: relative;
     background: var(--keypad-bg);
     width: 100%;
     height: 22px;
     border-radius: 10px;
+    cursor: pointer;
 }
 
-.scroll-btn .btn{
+.scroll-btn .scroll-sec {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+}
+
+.scroll-sec > input {
+    width: 19px;
+    height: 14px;
+    z-index: 2;
+    opacity: 0;
+    cursor: pointer;
+}
+
+.scroll-btn .btn {
     position: absolute;
     width: 16px;
-    height: 16px;
     border-radius: 50%;
     background: var(--equal-btn-bg);
+    height: 16px;
     left: 5px; /* 20px */
+    transition: 0.6s ease;
 }
 
 .calc .screen {
-    width: 430px;
+    max-width: 430px;
     height: 100px;
     padding: 1.2rem;
     border-radius: 7px;
@@ -116,8 +141,8 @@ body {
 
 .calc .keys {
     display: grid;
-    grid-template-columns: repeat(4, 80px);
-    gap: 1.5rem;
+    grid-template-columns: repeat(4, minmax(55px, 80px));
+    gap: clamp(.8rem, 4vw, 1.5rem);
     padding: 1.2rem;
     border-radius: 7px;
     background: var(--keypad-bg);
@@ -126,7 +151,7 @@ body {
 }
 
 .keys button {
-    padding: 0.7rem 0.8rem;
+    padding: 0.7rem 0rem;
     border-radius: 7px;
     border: none;
     font-size: 32px;
@@ -140,39 +165,71 @@ body {
 }
 
 .keys button:hover {
-    background: var(--white);
+    background: var(--btn-hover);
 }
 
 .keys button:active {
     box-shadow: inset 0px 2px 0px 2px var(--btn-shadow);
 }
 
-#reset, #del  {
+.keys #reset,
+#del {
     grid-column: 1 / span 2;
     background: var(--reset-btn-bg);
     box-shadow: 0px 2px 0px 2px var(--reset-btn-shadow);
+    color: var(--reset-text);
 }
 
-#reset:active, #del:active{
+#reset:active,
+#del:active {
     box-shadow: inset 0px 2px 0px 2px var(--reset-btn-shadow);
 }
 
-#del{
-    grid-column: 4;
+#reset:hover,
+#del:hover {
+    background: var(--reset-hover);
 }
 
-#equal{
+.keys #del {
+    grid-column: 4;
+    color: var(--reset-text);
+}
+
+.keys #equal {
     grid-column: 3 / span 2;
     background: var(--equal-btn-bg);
     box-shadow: 0px 2px 0px 2px var(--equal-btn-shadow);
+    color: var(--equal-text);
 }
 
-#equal:active{
+#equal:active {
     box-shadow: inset 0px 2px 0px 2px var(--equal-btn-shadow);
 }
 
-#reset, #equal, #del{
+#equal:hover{
+    background: var(--equal-hover);
+}
+
+#reset,
+#equal,
+#del {
     color: var(--white);
     font-size: 25px;
     height: 52px;
+}
+
+.attribution {
+    font-size: 11px;
+    text-align: center;
+    color: var(--equal-btn-bg);
+    font-weight: 700;
+    line-height: 1.5rem;
+}
+
+.attribution a {
+    color: var(--screen-text);
+    padding: 0.3rem;
+    border-radius: 15px;
+    background: var(--keypad-bg);
+    font-weight: 400;
 }
