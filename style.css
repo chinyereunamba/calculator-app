@@ -153,6 +153,7 @@ body {
 .keys button {
     padding: 0.7rem 0rem;
     border-radius: 7px;
+    height: 55px;
     border: none;
     font-size: 32px;
     font-weight: 800;
@@ -172,8 +173,7 @@ body {
     box-shadow: inset 0px 2px 0px 2px var(--btn-shadow);
 }
 
-.keys #reset,
-#del {
+.keys #reset {
     grid-column: 1 / span 2;
     background: var(--reset-btn-bg);
     box-shadow: 0px 2px 0px 2px var(--reset-btn-shadow);
@@ -192,7 +192,11 @@ body {
 
 .keys #del {
     grid-column: 4;
+    padding: 0.7rem 0rem;
     color: var(--reset-text);
+    height: 55px;
+    background: var(--reset-btn-bg);
+    box-shadow: 0px 2px 0px 2px var(--reset-btn-shadow);
 }
 
 .keys #equal {
